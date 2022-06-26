@@ -1,0 +1,38 @@
+<% if dig_objs.present? %>
+  <ul class="digital-objects list-unstyled">
+    <% dig_objs.each do |dig_obj| %>
+    <li class="digital-object">
+      <% if dig_obj['material'] == 'ebook' %>
+        <%= render partial: 'digital/ebook', :locals => {:dig_obj => dig_obj} %>
+      <% else %>
+        <div class="object-type">
+          <i class="fa <%= { 'moving_image' => 'fa-file-video-o' ,
+            'sound_recording' => 'fa-file-audio-o',
+            'sound_recording_musical' => 'fa-file-audio-o',
+            'sound_recording_nonmusical' => 'fa-file-audio-o' ,
+            'still_image' => 'fa-file-image-o' ,
+            'text' => 'fa-file-text'}.fetch(dig_obj['material'], 'fa-file-o') %> fa-4x"></i><br />
+          <span class="type-title"><%= dig_obj['material'].blank? ? '' : "#{t('enumerations.digital_object_digital_object_type.' + dig_obj['material'])}" %></span>
+        </div>
+        <ul class="files list-unstyled">
+        <% dig_obj['files'].each do |d_file| %>
+          <% if !d_file['uri'].blank? %>
+            <li class="file<%= " representative" if d_file['representative'] %>">
+            <a class="file-link" href="<%= d_file['uri'] %>" target="new" title="<%= t('digital_object._public.link')%>">
+              <%= d_file['caption'].blank? ? d_file['file_format'].blank? ? "#{t('enumerations.instance_instance_type.digital_object')}" : "#{t('enumerations.file_version_file_format_name.' + d_file['file_format'])}" : d_file['caption'].html_safe %>
+            </a>
+            <% if d_file.has_key?('file_format') %>
+              <span class="file-format"><%= d_file['file_format'] %></span>
+              <% end %>
+            <% if d_file.has_key?('file_size_readable') %>
+              <span class="file-size"><%= d_file['file_size_readable'].gsub(' ', '&nbsp;').html_safe %></span>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+        </ul>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>

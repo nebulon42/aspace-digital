@@ -1,0 +1,29 @@
+<div class="object-type">
+  <i class="fa fa-book fa-4x"></i><br />
+  <span class="type-title"><%= t('enumerations.digital_object_digital_object_type.ebook') %></span>
+</div>
+<div class="object-files">
+  <% if dig_obj['specific']['online_readable_file'] != nil %>
+  <a class="read-online"
+     href="<%= "#{AppConfig[:public_url]}reader?#{AppConfig[:public_url]}ebook/#{Base64.encode64(dig_obj['specific']['online_readable_file']['uri'])}.#{dig_obj['specific']['online_readable_file']['file_format']}" %>"
+     target="new"><%= t('plugins.aspace-digital.ebook.read_online') %></a>
+  <hr class="divider">
+  <% end %>
+  <ul class="files list-unstyled">
+  <% dig_obj['files'].each do |d_file| %>
+    <% if !d_file['uri'].blank? %>
+    <li class="file<%= " representative" if d_file['representative'] %>">
+    <a class="file-link" href="<%= d_file['uri'] %>" target="new" title="<%= t('digital_object._public.link')%>">
+      <%= d_file['caption'].blank? ? d_file['file_format'].blank? ? "#{t('enumerations.instance_instance_type.digital_object')}" : "#{t('enumerations.file_version_file_format_name.' + d_file['file_format'])}" : d_file['caption'].html_safe %>
+    </a>
+    <% if d_file.has_key?('file_format') %>
+      <span class="file-format"><%= d_file['file_format'] %></span>
+      <% end %>
+    <% if d_file.has_key?('file_size_readable') %>
+      <span class="file-size"><%= d_file['file_size_readable'].gsub(' ', '&nbsp;').html_safe %></span>
+      <% end %>
+    </li>
+    <% end %>
+  <% end %>
+  </ul>
+</div>

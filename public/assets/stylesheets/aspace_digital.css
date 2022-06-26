@@ -1,0 +1,67 @@
+.digital-objects {
+    max-width: 50%;
+    float: right;
+    margin: 0 0 1em 1em;
+}
+
+.digital-object {
+    border: 3px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.digital-object:not(:last-of-type) {
+    margin-bottom: 10px;
+}
+
+.digital-object .object-type {
+    text-align: center;
+    width: 25%;
+    color: #9e9e9e;
+}
+
+.digital-object .object-type i {
+    margin-bottom: 3px;
+}
+
+.digital-object .object-type .type-title {
+    font-weight: bold;
+}
+
+.digital-object .file:not(:last-of-type) {
+    margin-bottom: 3px;
+}
+
+.digital-object .file {
+    position: relative;
+}
+
+.digital-object .file-link {
+    font-weight: bold;
+}
+
+.digital-object .file.representative .file-link {
+    font-style: italic;
+}
+
+.file-size,
+.file-format {
+    padding-left: 3px;
+    font-size: 0.9em;
+    color: rgb(48, 48, 48);
+}
+
+.file-format {
+    text-transform: uppercase;
+}
+
+.object-files .divider {
+    margin: 10px 0;
+}
+
+.read-online {
+    font-weight: bold;
+}

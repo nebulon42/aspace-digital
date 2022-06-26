@@ -1,0 +1,8 @@
+de:
+  enumerations:
+    file_version_file_format_name:
+      epub: Datei für elektronische Publikation
+      epub3: Datei für elektronische Publikation Version 3
+      azw3: Kindle Format 8 Datei
+    digital_object_digital_object_type:
+      ebook: Elektronisches Buch

@@ -1,0 +1,33 @@
+de:
+  plugins:
+    aspace-digital:
+      ebook:
+        read_online: Elektronisches Buch online lesen
+      epubviewer:
+        description: ePubViewer ist eine mächtige, moderne und einfach zu verwendene Applikation, um E-Bücher zu lesen.
+        search_placeholder: Buch durchsuchen...
+        themes: Themen
+        font: Schriftart
+        font_size: Schriftgröße
+        line_spacing: Zeilenabstand
+        margin: Rand
+        progress_display:
+          title: Fortschrittsanzeige
+          location: Ort
+          percentage: Prozent
+          chapter: Kapitel
+          bar: Leiste
+          none: Keine
+        fullscreen: Vollbild
+        reset: Zurücksetzen
+        reset_all: Alles zurücksetzen
+        confirmation: Sind Sie sicher?
+        report_issue: Einen Fehler melden
+        code: Code
+        browser_requirements: Diese Applikation benötigt Microsoft Edge 15+, Mozilla Firefox 50+, Chrome 50+, oder Safari 10+.
+        about: Über
+        general_error: |
+          Unbekannter Fehler. Wenn diese Meldung nicht in ein paar Sekunden verschwindet, dann versuchen Sie einen anderern Browser (Chrome oder Firefox) zu verwenden.
+          Wenn das Problem weiterhin bestehen bleibt, dann
+          <a href="https://github.com/pgaskin/ePubViewer">melden Sie es hier</a>.
+        ie_unsupported: ePubViewer unterstützt Internet Explorer nicht. Bitte verwenden Sie Chrome oder Firefox.
