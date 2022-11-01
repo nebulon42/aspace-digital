@@ -8,7 +8,7 @@ class EbookReaderController < ApplicationController
   def retrieve
     url = Base64.decode64(params[:url])
     data = open(url)
-    headers['Access-Control-Allow-Origin'] = AppConfig[:public_url]
+    headers['Access-Control-Allow-Origin'] = AppConfig[:public_proxy_url]
     send_data data.read, :type => data.content_type, :filename => URI(url).path.split('/').last
   end
 end

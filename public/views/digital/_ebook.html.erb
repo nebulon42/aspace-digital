@@ -5,7 +5,7 @@
 <div class="object-files">
   <% if dig_obj['specific']['online_readable_file'] != nil %>
   <a class="read-online"
-     href="<%= "#{AppConfig[:public_url]}reader?#{AppConfig[:public_url]}ebook/retrieve/#{Base64.encode64(dig_obj['specific']['online_readable_file']['uri'])}.#{dig_obj['specific']['online_readable_file']['file_format']}" %>"
+     href="<%= "#{AppConfig[:public_proxy_url]}/reader?#{AppConfig[:public_proxy_url]}/ebook/retrieve/#{Base64.encode64(dig_obj['specific']['online_readable_file']['uri'])}.#{dig_obj['specific']['online_readable_file']['file_format']}" %>"
      target="new"><%= t('plugins.aspace-digital.ebook.read_online') %></a>
   <hr class="divider">
   <% end %>
