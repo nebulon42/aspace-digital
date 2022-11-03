@@ -258,6 +258,7 @@ App.prototype.el = function (t, c) {
 };
 
 App.prototype.onBookReady = function (event) {
+    this.qs(".loading-wrapper").classList.add("hidden");
     this.qs(".sidebar-button").classList.remove("hidden");
     this.qs(".bar button.prev").classList.remove("hidden");
     this.qs(".bar button.next").classList.remove("hidden");
@@ -759,6 +760,7 @@ try {
         document.querySelector(".app button.open").style = "display: none !important";
     }
     if (ufn) {
+        document.querySelector(".app .loading-wrapper").classList.remove("hidden");
         fetch(ufn).then(resp => {
             if (resp.status != 200) throw new Error("response status: " + resp.status.toString() + " " + resp.statusText);
         }).catch(err => {

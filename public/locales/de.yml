@@ -4,6 +4,7 @@ de:
       ebook:
         read_online: Elektronisches Buch online lesen
       epubviewer:
+        loading: Lade E-Buch.
         description: ePubViewer ist eine mächtige, moderne und einfach zu verwendene Applikation, um E-Bücher zu lesen.
         search_placeholder: Buch durchsuchen...
         themes: Themen
