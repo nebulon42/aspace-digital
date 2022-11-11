@@ -1,6 +1,4 @@
 .digital-objects {
-    max-width: 50%;
-    float: right;
     margin: 0 0 1em 1em;
 }
 
@@ -64,4 +62,11 @@
 
 .read-online {
     font-weight: bold;
+}
+
+@media (min-width: 992px) {
+    .digital-objects {
+        max-width: 50%;
+        float: right;
+    }
 }
