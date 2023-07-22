@@ -25,7 +25,7 @@ Rails.application.config.after_initialize do
           unless !instance.dig('digital_object', '_resolved')
             dig_f = {}
             it = instance['digital_object']['_resolved']
-            if it.dig('publish') == true && !it['file_versions'].blank?
+            unless !it['publish'] || it['file_versions'].blank?
               dig_f['material'] = it['digital_object_type'].blank? ? '' : it['digital_object_type']
               dig_f['files'] = process_file_versions(it)
               dig_f['specific'] = process_specific(dig_f)
@@ -56,7 +56,8 @@ Rails.application.config.after_initialize do
           rep_caption = ''
           dig_f = {}
           version['file_uri'].strip!
-          if version.dig('publish') != false && version['file_uri'].start_with?('http')
+          if version.dig('publish') != false && (version['file_uri'].start_with?('http') ||
+            version['file_uri'].start_with?('data:'))
             if version.has_key?('file_size_bytes')
               dig_f['file_size_bytes'] = version['file_size_bytes']
               dig_f['file_size_readable'] = number_to_human_size(version['file_size_bytes'], precision: 2)
